@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: #c1aec9;
+        color: rgb(45, 4, 60);
+        font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-top: 50px;
+    }
+    
+    form {
+        margin-top: 10px;
+        text-align: center;
+    }
+    ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            font-size: 1.2em;
+            padding: 10px;
+            margin: 10px;
+            background-color: #ac7a9c;
+            border-radius: 5px;
+        }
+        p {
+
+            font-size: 20px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+    
+
+<body>
+    
+    <h1>Regex Test Matches</h1>
+    <form>
+        {% if match %}
+        <ul>
+            {% for i in match %}
+            <li>{{i}}</li>
+            {% endfor %}
+
+        <p>Count of Matches - {{match1}}</p>
+
+
+        </ul>
+        {% else %} 
+        <p>No match found</p>
+        {% endif %}
+
+    </form>
+    
+</body>
+</html>
