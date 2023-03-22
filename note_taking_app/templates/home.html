@@ -4,18 +4,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Note Taking App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(218, 230, 225);
+        }
+        .header {
+            background-color: #333;
+            color: rgb(215, 222, 222);
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            margin-bottom: 30px;
+            
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #4f4e4e;
+            color: rgb(244, 240, 239);
+            border: none;
+            border-radius: 0px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        button[type="submit"] {
+            background-color: #80a281;
+        }
+        button[type="submit"]:hover {
+            background-color: #226024;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            
+        }
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            margin-left:0px;
+            
+        }
+
+        li button {
+            
+            margin-left:730px;
+        }
+        form.remove-note-form {
+            display: inline-block;
+            margin-left: 100px;
+            
+        }
+    </style>
 </head>
 <body>
-    <form action="{{url_for('index')}}" method="post">
-        <input type="text" name="note" placeholder="Enter a note">
-        <button>Add Note</button>
-    </form>
+    <div class="header">
+        <h1>My Note Taking App</h1>
+    </div>
+    <div class="container">
+        <form action="{{ url_for('index')}}" method="post">
+            <input type="text" name="note" placeholder="Enter a note">
+            <button>Add Note</button>
+            <button type="submit" name="Clear">Clear Notes</button>
+        </form>
 
         <ul>
         {% for note in notes%}
-            <li>{{ note }}</li>
+            <li>{{ note }} </span><br><br>
+                <form action="{{ url_for('index')}}" method="post" class="remove_note_form">
+                    <input type="hidden" name="note_to_remove" value="{{ note }}">
+                    <button type="submit" name="remove">Remove</button>
+                </form>
+            </li>
         {% endfor %}
         </ul>
+    </div>
+    
 </body>
 </html>
