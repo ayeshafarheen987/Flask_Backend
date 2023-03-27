@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title> URL Shortener App</title>
+    <style>
+		body {
+			background-color: #040404; /* set your desired background color */
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			text-align: center;
+		}
+		h1 {
+			font-size: 36px;
+			color: #f6f0f4;
+			margin-top: 0;
+		}
+		p {
+			font-size: 18px;
+			color: #a59e9e;
+			margin-bottom: 30px;
+		}
+		a.button {
+			display: inline-block;
+			background-color: #007bff; /* set your desired button color */
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 5px;
+			text-decoration: none;
+			font-size: 16px;
+			transition: background-color 0.3s ease;
+		}
+		a.button:hover {
+			background-color: #0062cc; /* set your desired button hover color */
+		}
+	</style>
+</head>
+<body>
+    
+
+    <div class="container">
+        
+        
+            
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center mt-5">
+        
+            <h1 class="card-title text-center">Welcome to URL Shortener</h1>
+            <p class="card-text text-center">This app allows you to shorten any URL into a compact and easy to remember format.</p>
+            <p class="card-text text-center">To get started, simply create an account or log in if you already have one.</p>
+        <a href="{{url_for('login')}}" class="btn btn-primary btn-lg mr-2">Log in</a>
+        <a href="{{url_for('signup')}}" class="btn btn-success btn-lg">Sign up</a>
+            
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+{% endblock %}

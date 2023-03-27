@@ -1,0 +1,66 @@
+{% extends 'layout.html' %} 
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup page</title>
+    <style>
+        form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+    <form action="{{url_for('signup')}}" method="post">
+        <h1>Create your Account</h1>
+        <label for="username">Enter User Name</label>
+        <input type="text" placeholder="enter user name here" value="" name="uname">
+        <label for="email">Email Address</label>
+        <input type="text" placeholder="enter your email address" value="" name="uemail">
+        <label for="password"> Enter password</label>
+        <input type="password" placeholder="enter your password" value="" name="upassword">
+        
+        <input type="submit" value="create account">
+    </form>
+</body>
+</html>
+{% endblock %}

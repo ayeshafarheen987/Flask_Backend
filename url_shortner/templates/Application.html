@@ -1,0 +1,121 @@
+{% extends 'layout.html' %} 
+
+{% block content %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        
+        label {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        
+        input[type="text"], input[type="url"] {
+            width: 400px;
+            height: 40px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        
+        input[type="submit"] {
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #006F8C;
+        }
+        
+        
+        
+        .result p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-left: 500px;
+            margin-top: 50px;
+        }
+        
+        .result input[type="text"] {
+            width: 400px;
+            height: 40px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-left: 400px;
+        }
+        
+        .result button {
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .result button:hover {
+            background-color: #006F8C;
+        }
+    </style>
+</head>
+<body>
+    <form action="{{url_for('shorten')}}" method="post">
+        <label for="url"> Destination </label>
+        <input type="url" placeholder="Enter url" value="" name="url">
+        <input type="submit" value="Enter">
+    </form>
+
+    {% if short_url %}
+    <div class="result">
+        <p>Here is your shortened URL:</p>
+        <input type="text" value="{{ short_url }}" name="short_url">
+        <button onclick="copyUrl()">Copy URL</button>
+    </div>
+    <script>
+        console.log("Short URL:", "{{ short_url }}");
+    </script>
+    {% endif %}
+          
+    <script>
+        function copyUrl() {
+            var copyText = document.querySelector('.result input[type="text"]');
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Copied the text: " + copyText.value);
+        }
+    </script>
+
+    {% endblock %}
